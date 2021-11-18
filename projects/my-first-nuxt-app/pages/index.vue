@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-    <h1>Hello, I'm a first Vue/Nuxt app!</h1>
+    <nuxt-link to="/users">Users</nuxt-link>
   </section>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
