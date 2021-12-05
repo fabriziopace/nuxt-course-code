@@ -2,18 +2,21 @@
   <div class="post-page">
     <PostPreview
       id="1"
+      :is-admin="isAdmin"
       thumbnail="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
       title="Hello there!"
       previewText="This is my first post!"
     />
     <PostPreview
       id="2"
+      :is-admin="isAdmin"
       thumbnail="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
       title="Hello there 2!"
       previewText="This is my second post!"
     />
     <PostPreview
       id="3"
+      :is-admin="isAdmin"
       thumbnail="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
       title="Hello there 3!"
       previewText="This is my third post!"
@@ -28,6 +31,12 @@ export default {
   components: {
     PostPreview,
   },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 
