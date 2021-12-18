@@ -48,13 +48,15 @@ export default {
       .catch((e) => {
         context.error(new Error());
       });
-    console.log(context);
   },
   // data() {
   //   return {
   //     loadedPosts: [],
   //   };
   // },
-  created() {},
+  created() {
+    this.$store.dispatch("setPosts", this.loadedPosts);
+    console.log(this.$store.getters.loadedPosts);
+  },
 };
 </script>
