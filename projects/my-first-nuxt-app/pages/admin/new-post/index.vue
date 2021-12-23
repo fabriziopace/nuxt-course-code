@@ -16,7 +16,7 @@ export default {
   methods: {
     onSubmitted(postData) {
       axios
-        .post("urlFirebase/posts.json", postData)
+        .post("firebaseURL/posts.json", postData)
         .then((result) => console.log(result))
         .catch((e) => console.log(e));
     },
