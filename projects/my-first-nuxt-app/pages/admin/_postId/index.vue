@@ -8,21 +8,26 @@
 
 <script>
 import AdminPostForm from "@/components/Admin/AdminPostForm";
+import axios from "axios";
+
 export default {
-  layout: 'admin',
+  layout: "admin",
   components: {
     AdminPostForm,
   },
-  data() {
-    return {
-      loadedPost: {
-        author: "Fabrizio",
-        title: "My awesome Post",
-        content: "Super amazing, thanks for that!",
-        thumbnailLink:
-          "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
-      },
-    };
+  asyncData(context) {
+    return axios
+      .get(
+        "firebaseURL/posts/" +
+          context.params.postId +
+          ".json"
+      )
+      .then((res) => {
+        return {
+          loadedPost: res.data,
+        };
+      })
+      .catch((e) => context.error());
   },
 };
 </script>
