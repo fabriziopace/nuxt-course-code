@@ -20,7 +20,9 @@ export default {
           ...postData,
           updatedDate: new Date(),
         })
-        .then((result) => console.log(result))
+        .then((result) => {
+          this.$route.push("/admin");
+        })
         .catch((e) => console.log(e));
     },
   },
