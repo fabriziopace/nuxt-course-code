@@ -17,22 +17,23 @@ export default {
   },
   asyncData(context) {
     return axios
-      .get("firebaseURL/posts/" + context.params.postId + ".json")
+      .get(
+        "firebaseURL/posts/" +
+          context.params.postId +
+          ".json"
+      )
       .then((res) => {
         return {
-          loadedPost: res.data,
+          loadedPost: { ...res.data, id: context.params.postId },
         };
       })
       .catch((e) => context.error());
   },
   methods: {
     onSubmitted(editedPost) {
-      axios
-        .put("firebaseURL/posts/" + this.$route.params.postId + ".json", editedPost)
-        .then((res) => {
-          this.$route.push("/admin");
-        })
-        .catch((e) => console.log(e));
+      this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$router.push("/admin");
+      });
     },
   },
 };

@@ -15,15 +15,9 @@ export default {
   components: { AdminPostForm },
   methods: {
     onSubmitted(postData) {
-      axios
-        .post("firebaseURL/posts.json", {
-          ...postData,
-          updatedDate: new Date(),
-        })
-        .then((result) => {
-          this.$route.push("/admin");
-        })
-        .catch((e) => console.log(e));
+      this.$store.dispatch("addPost", postData).then(() => {
+        this.$route.push("/admin");
+      });
     },
   },
 };
