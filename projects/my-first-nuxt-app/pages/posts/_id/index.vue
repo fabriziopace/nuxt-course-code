@@ -25,11 +25,7 @@ import axios from "axios";
 export default {
   asyncData(context) {
     return axios
-      .get(
-        "firebaseURL/posts/" +
-          context.params.id +
-          ".json"
-      )
+      .get(process.env.baseUrl + "/posts/" + context.params.id + ".json")
       .then((res) => {
         return {
           loadedPost: res.data,
@@ -38,8 +34,8 @@ export default {
       .catch((e) => context.error(e));
   },
   head: {
-    title: 'A Blog Post'
-  }
+    title: "A Blog Post",
+  },
 };
 </script>
 
