@@ -50,5 +50,8 @@ export default {
   },
   env: {
     baseUrl: 'firebaseUrl'
+  },
+  router: {
+    linkActiveClass: 'active'
   }
 }
