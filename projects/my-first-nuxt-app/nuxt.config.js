@@ -51,7 +51,8 @@ export default {
   env: {
     baseUrl: 'firebaseUrl'
   },
-  router: {
-    linkActiveClass: 'active'
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
