@@ -56,7 +56,8 @@ export default {
   build: {
   },
   env: {
-    baseUrl: 'firebaseUrl'
+    baseUrl: 'firebaseUrl',
+    fbAPIKey: 'webAPIkey'
   },
   transition: {
     name: 'fade',
